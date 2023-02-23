@@ -1,0 +1,12 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  font-family: Inter, sans-serif;
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+}

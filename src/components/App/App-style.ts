@@ -33,3 +33,16 @@ export const Title = styled.h1`
   text-align: center;
   text-transform: uppercase;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  gap: 30px;
+  min-width: 40%;
+`;
+
+export const Step = styled.div`
+  min-height: 300px;
+  max-height: 400px;
+`;

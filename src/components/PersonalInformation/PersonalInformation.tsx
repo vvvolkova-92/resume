@@ -1,13 +1,12 @@
 import {FC, useState} from "react";
 import {
   BorderContainer,
-  Container,
   Table,
   Text
 } from "./PersonalInformation-style";
 import {Checkbox} from "../../ui/Checkbox/Checkbox";
 import {RadioButton} from "../../ui/RadioButton/RadioButton";
-import {MyContext, useData} from "../../context/context";
+import {useData} from "../../context/context";
 
 export const PersonalInformation: FC = () => {
   const { data, setData } = useData();
@@ -18,7 +17,6 @@ export const PersonalInformation: FC = () => {
   };
 
   const onClickCheckbox = (event: { target: HTMLInputElement; }) => {
-    event.target.id === 'shortName' ? setData({...data, name: 'shortName'}) : setData({...data, name: 'fullName'});
     switch (event.target.id) {
       case 'photo':
         setData({...data, photo: !data.photo});
@@ -31,6 +29,12 @@ export const PersonalInformation: FC = () => {
         break;
       case 'familyStatus':
         setData({...data, familyStatus: !data.familyStatus});
+        break;
+      case 'hobby':
+        setData({...data, hobby: !data.hobby});
+        break;
+      case 'personalQualities':
+        setData({...data, personalQualities: !data.personalQualities});
         break;
     }
   };
@@ -48,12 +52,11 @@ export const PersonalInformation: FC = () => {
           <Checkbox id={'zodiac'} label={'Знак зодиака :\'-)'} checked={data.zodiac} onClickCheckbox={onClickCheckbox}/>
           <Checkbox id={'familyStatus'} label={'Семейное положение'} checked={data.familyStatus} onClickCheckbox={onClickCheckbox}/>
         </BorderContainer>
-        <BorderContainer title={"Контакты"}>
-          <Checkbox id={'telephone'} label={'Номер телефона'} checked={data.telephone} onClickCheckbox={onClickCheckbox}/>
-          <Checkbox id={'telegram'} label={'Телеграм'} checked={data.telegram} onClickCheckbox={onClickCheckbox}/>
-          <Checkbox id={'github'} label={'GitHub'} checked={data.github} onClickCheckbox={onClickCheckbox}/>
-          <Checkbox id={'linkedIn'} label={'LinkedIn'} checked={data.linkedIn} onClickCheckbox={onClickCheckbox}/>
-          <Checkbox id={'email'} label={'Мыло (по старинке)'} checked={data.email} onClickCheckbox={onClickCheckbox}/>
+        <BorderContainer title={"О себе"}>
+          <Checkbox id={'city'} label={'Город проживания'} checked={data.city} onClickCheckbox={onClickCheckbox}/>
+          <Checkbox id={'hobby'} label={'Хобби'} checked={data.hobby} onClickCheckbox={onClickCheckbox}/>
+          <Checkbox id={'personalQualities'} label={'Личные качества'} checked={data.personalQualities} onClickCheckbox={onClickCheckbox}/>
+          <Checkbox id={'animals'} label={'Котики или собачки?!'} checked={data.animals} onClickCheckbox={onClickCheckbox}/>
         </BorderContainer>
       </Table>
     </>

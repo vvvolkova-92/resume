@@ -10,23 +10,12 @@ export const StyledButton = styled.button<IButton>`
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 18px;
   min-width: 120px;
   
   background-color: ${({theme}) => theme.button.background};
   color: ${({theme}) => theme.button.textColor};
+  text-align: center;
+  font-size: 18px;
   border-radius: 20px;
-  
-  &:after {
-    position: absolute;
-    content: ${props => (props.icon === Arrow.Right 
-            ? "'→'" 
-            : props.icon === Arrow.Left ? "'←'" : '')};
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    
-    font-size: 40px;
-  }
 `;

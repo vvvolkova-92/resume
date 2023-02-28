@@ -28,6 +28,9 @@ export const initialData = {
     githubQr: githubQr,
     linkedIn: 'www.linkedin.com/in/vvvolkova',
     linkedInQr: linkedInQr,
+    hobby: ['чтение научпопа', 'рисование акварелью'],
+    animals: ['И котики, и собачки =)'],
+    stack: ['HTML5/CSS3', 'SCSS', 'JavaScript / TypeScript', 'React', 'Webpack / Vite / ParselJS'],
     personalQualities: [
       'Учитывая специфику работы администратора в большой больнице, успешно разрешаю конфликтные ситуации',
       'Исходя из предыдущего пункта - весьма стрессоустойчива',
@@ -59,7 +62,13 @@ export const initialData = {
       specialization: 'Веб-разработка+',
       city: 'Москва',
       status: 'не окончен / до окончания 3 месяца',
-    }
+    },
+    projects: [
+      {name: 'name1', description: 'desc1'},
+      {name: 'name2', description: 'desc2'},
+      {name: 'name3', description: 'desc3'},
+      {name: 'name4', description: 'desc4'},
+    ],
   },
   works: [
     {

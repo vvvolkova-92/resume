@@ -34,12 +34,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-`;
-
 export const Text = styled.p`
+  margin: 0;
   align-self: flex-start;
   max-width: 720px;
 

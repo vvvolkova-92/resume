@@ -1,36 +1,12 @@
 import {createContext, useState, useMemo, FC, useContext, ReactNode} from "react";
 import {initialData} from "../utils/constants";
+import {IData} from "../components/types/types";
 
 export const MyContext = createContext();
-export function useData() {
-  return useContext(MyContext);
-};
-interface IData {
-  data: {},
-  name: string;
-  photo: boolean;
-  age: boolean;
-  familyStatus: boolean;
-  zodiac: boolean;
-  telephone: boolean;
-  telegram: boolean;
-  github: boolean;
-  linkedIn: boolean;
-  email: boolean;
-  hobby: boolean;
-  personalQualities: boolean;
-  stack: boolean;
-  university: boolean;
-  courses: boolean;
-  projects: boolean;
-  work: string;
-  city: boolean;
-  animals: boolean;
-}
 export const DataProvider:FC<{children: ReactNode}> = ({ children }) => {
   const [data, setData] = useState<IData>({
     data: initialData,
-    name: '',
+    name: 'shortName',
     photo: false,
     age: false,
     zodiac: false,
@@ -46,7 +22,7 @@ export const DataProvider:FC<{children: ReactNode}> = ({ children }) => {
     university: true,
     courses: false,
     projects: true,
-    work: '',
+    work: 'allWorks',
     city: false,
     animals: true,
   });

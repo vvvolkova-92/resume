@@ -1,9 +1,4 @@
 import styled from "styled-components";
-
-interface IToolTip {
-  content?: string,
-}
-
 export const Quote = styled.q`
   margin: 20px 0 0 0;
   max-width: 720px;
@@ -45,46 +40,5 @@ export const Text = styled.p`
   color: ${ ({theme}) => theme.textColor};
 `;
 
-export const ToolTip = styled.span<IToolTip>`
-  position: relative;
-  cursor: pointer;
-  color: ${ ({theme}) => theme.linkColor};
-  transition: var(--animation);
-  
-  :hover {
-    color: ${ ({theme}) => theme.textColor};
-    transition: var(--animation);
-  }
-  
-  &:after {
-    position: absolute;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    
-    padding: 10px;
-    content: ${props => (props.content ? `'${props.content}'` : '')};
-    top: -40px;
-    left: 55px;
-    width: 200px;
-    min-height: 100px;
-    
-    background-color: ${ ({theme}) => theme.linkColor};
-    border-radius: 10px;
-
-    font-size: 12px;
-    line-height: 14px;
-    color: ${ ({theme}) => theme.textColor};
-    
-    transition: var(--animation);
-    visibility: hidden;
-    opacity: 0;
-  }
-  &:hover:after {
-    visibility: visible;
-    opacity: 1;
-    transition: var(--animation);
-  }
-`;
 
 

@@ -20,6 +20,8 @@ declare module "styled-components" {
       noChecked: string,
       textColor: string,
     };
+    titleColor: string;
+    subtitleColor: string,
   }
 }
 
@@ -42,6 +44,8 @@ export const lightTheme: DefaultTheme = {
     noChecked: 'var(--radiobutton-no-color)',
     textColor: 'var(--radiobutton-text-color)',
   },
+  titleColor: 'var(--title-color)',
+  subtitleColor: 'var(--subtitle-color)',
 };
 
 export const darkTheme: DefaultTheme = {
@@ -63,4 +67,6 @@ export const darkTheme: DefaultTheme = {
     noChecked: 'var(--radiobutton-no-color)',
     textColor: 'var(--radiobutton-text-color)',
   },
+  titleColor: 'var(--title-color)',
+  subtitleColor: 'var(--subtitle-color)',
 };

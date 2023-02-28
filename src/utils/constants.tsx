@@ -2,16 +2,18 @@ import photo from "../images/photo.jpg";
 import telegramQr from "../images/qrtelega.png";
 import githubQr from "../images/qrgithub.png";
 import linkedInQr from "../images/qrlinkedin.png";
+import {IInitialData} from "../components/types/types";
 
 export const ToolTipContent = 'Позволь мне обращаться к тебе на «ты»: в конце концов, прочитав мое резюме, ты многое обо мне узнаешь. Даже больше, чем знают друзья..';
+
+export const ToolTipZodiac = 'Я надеюсь этот пункт был выбран ради шутки, иначе... бросай это резюме, нам не по пути XD'
 
 export enum Arrow {
   Left = "left",
   Right = "right",
 };
 
-
-export const initialData = {
+export const initialData:IInitialData = {
   personalInformation: {
     fullName: 'Волкова Виолетта Владимировна',
     shortName: 'Виолетта Волкова',
@@ -29,7 +31,7 @@ export const initialData = {
     linkedIn: 'www.linkedin.com/in/vvvolkova',
     linkedInQr: linkedInQr,
     hobby: ['чтение научпопа', 'рисование акварелью'],
-    animals: ['И котики, и собачки =)'],
+    animals: 'И котики, и собачки =)',
     stack: ['HTML5/CSS3', 'SCSS', 'JavaScript / TypeScript', 'React', 'Webpack / Vite / ParselJS'],
     personalQualities: [
       'Учитывая специфику работы администратора в большой больнице, успешно разрешаю конфликтные ситуации',
@@ -56,13 +58,15 @@ export const initialData = {
         status: 'не окончен / переезд',
       },
     ],
-    courses: {
-      name: 'Яндекс.Практикум',
-      year: '2021-настоящее время',
-      specialization: 'Веб-разработка+',
-      city: 'Москва',
-      status: 'не окончен / до окончания 3 месяца',
-    },
+    courses: [
+      {
+        name: 'Яндекс.Практикум',
+        year: '2021-настоящее время',
+        specialization: 'Веб-разработка+',
+        city: 'Москва',
+        status: 'не окончен / до окончания 3 месяца',
+      },
+    ],
     projects: [
       {name: 'name1', description: 'desc1'},
       {name: 'name2', description: 'desc2'},
@@ -72,7 +76,7 @@ export const initialData = {
   },
   works: [
     {
-      spec: 'no',
+      spec: false,
       organization: 'ООО «Полигон»',
       name: 'Менеджер по продажам услуг',
       year: 'Январь 2011 — январь 2012',
@@ -83,7 +87,7 @@ export const initialData = {
       ],
     },
     {
-      spec: 'yes',
+      spec: true,
       organization: 'Фриланс',
       name: 'Контент-менеджер',
       year: 'Январь 2013 — январь 2014',
@@ -97,14 +101,14 @@ export const initialData = {
       ],
     },
     {
-      spec: 'no',
+      spec: false,
       organization: 'Фриланс',
       name: 'Специалист службы техподдержки',
       year: 'Январь 2014 — январь 2015',
       about: ['Удаленная работа (техническая поддержка пользователей)'],
     },
     {
-      spec: 'no',
+      spec: false,
       organization: 'ИП Пигарева Н.К.',
       name: 'Фотограф',
       year: 'Март 2015 — июль 2019',
@@ -117,7 +121,7 @@ export const initialData = {
       ],
     },
     {
-      spec: 'no',
+      spec: false,
       organization: 'ИП Храмушина А.А.',
       name: 'Фотограф',
       year: 'Сентябрь 2019 — декабрь 2021',
@@ -130,7 +134,7 @@ export const initialData = {
       ],
     },
     {
-      spec: 'no',
+      spec: false,
       organization: 'ГБУЗ «Морозовская ДГКБ ДЗМ»',
       name: 'Администратор',
       year: 'Декабрь 2021 — по настоящее время',
@@ -144,7 +148,7 @@ export const initialData = {
       ],
     },
     {
-      spec: 'yes',
+      spec: true,
       organization: 'Яндекс.Практикум',
       name: 'студент курса "ВЕб-разработка+"',
       year: 'Июнь 2021 — по настоящее время',

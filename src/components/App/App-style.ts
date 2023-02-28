@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+interface IStep {
+  size: string;
+}
 export const AppWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -7,7 +10,7 @@ export const AppWrapper = styled.div`
   background-image: ${ ({theme}) => theme.backgroungGradient};
   height: 100vh;
 `;
-export const Wrapper = styled.main`
+export const Wrapper = styled.main<IStep>`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -15,8 +18,8 @@ export const Wrapper = styled.main`
   justify-content: space-around;
   
   padding: 40px;
-  min-width: 800px;
-  min-height: 600px;
+  width: 800px;
+  min-height: ${props => props.size === 'small' ? '600px' : '700px'};
   
   background-color: ${ ({theme}) => theme.wrapperColor};
   border-radius: 30px;
@@ -42,7 +45,12 @@ export const ButtonContainer = styled.div`
   min-width: 40%;
 `;
 
-export const Step = styled.div`
-  min-height: 300px;
-  max-height: 400px;
+export const Step = styled.div<IStep>`
+  min-height: ${props => props.size === 'small' ? '300px' : '500px'};
+  max-height: ${props => props.size === 'small' ? '400px' : '500px'};
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
 `;

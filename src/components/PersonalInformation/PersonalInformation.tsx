@@ -6,7 +6,7 @@ import {
 } from "./PersonalInformation-style";
 import {Checkbox} from "../../ui/Checkbox/Checkbox";
 import {RadioButton} from "../../ui/RadioButton/RadioButton";
-import {useData} from "../../context/context";
+import {useData} from "../../hooks/useData";
 
 export const PersonalInformation: FC = () => {
   const { data, setData } = useData();
@@ -29,6 +29,9 @@ export const PersonalInformation: FC = () => {
         break;
       case 'familyStatus':
         setData({...data, familyStatus: !data.familyStatus});
+        break;
+      case 'city':
+        setData({...data, city: !data.city});
         break;
       case 'hobby':
         setData({...data, hobby: !data.hobby});

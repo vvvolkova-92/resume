@@ -6,9 +6,8 @@ import {Arrow} from "../../utils/constants";
 import {PersonalInformation} from "../PersonalInformation/PersonalInformation";
 import {DataProvider} from "../../context/context";
 import {ProfInformation} from "../ProfInformation/ProfInformation";
-import {useState} from "react";
 import {Resume} from "../Resume/Resume";
-function App() {
+export function App() {
   const {steps, currentStepIndex, isFirstStep, isLastStep, next, back, step, goTo, getResume} = useMultiStep([
     <Intro/>,
     <PersonalInformation/>,
@@ -26,9 +25,9 @@ function App() {
     <DataProvider>
       <AppWrapper>
         {/*<ChangeTheme />*/}
-        <Wrapper>
-          <Title>Frontend Developer</Title>
-          <Step>
+        <Wrapper size={isLastStep ? 'large': 'small'}>
+          {!isLastStep && <Title>Frontend Developer</Title>}
+          <Step size={isLastStep ? 'large': 'small'}>
             {step}
           </Step>
           <ButtonContainer>

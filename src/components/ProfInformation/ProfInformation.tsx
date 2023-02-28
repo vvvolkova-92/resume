@@ -6,7 +6,7 @@ import {
 } from "./ProfInformation-style";
 import {Checkbox} from "../../ui/Checkbox/Checkbox";
 import {RadioButton} from "../../ui/RadioButton/RadioButton";
-import {useData} from "../../context/context";
+import {useData} from "../../hooks/useData";
 
 export const ProfInformation: FC = () => {
   const { data, setData } = useData();
@@ -38,6 +38,9 @@ export const ProfInformation: FC = () => {
       case 'linkedIn':
         setData({...data, linkedIn: !data.linkedIn});
         break;
+      case 'stack':
+        setData({...data, stack: !data.stack});
+        break;
       case 'email':
         setData({...data, email: !data.email});
         break;
@@ -51,6 +54,7 @@ export const ProfInformation: FC = () => {
           <Checkbox id={'university'} label={'ВУЗы'} checked={data.university} onClickCheckbox={onClickCheckbox}/>
           <Checkbox id={'courses'} label={'Курсы'} checked={data.courses} onClickCheckbox={onClickCheckbox}/>
           <Checkbox id={'projects'} label={'Проекты'} checked={data.projects} onClickCheckbox={onClickCheckbox}/>
+          <Checkbox id={'stack'} label={'Стек технологий'} checked={data.stack} onClickCheckbox={onClickCheckbox}/>
         </BorderContainer>
         <BorderContainer title={"Опыт работы"}>
           <RadioButton label={'Вся работа'} id={'allWorks'} name={'work'} onChange={onClickRadioBtn} checked={checked}/>

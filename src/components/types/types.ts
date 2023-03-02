@@ -81,3 +81,15 @@ export interface Props {
   size: string;
 }
 export type TRef = MutableRefObject<any>;
+
+export interface ItemBlockProps {
+  type: 'work' | 'study' | 'project';
+  name: string;
+  year:string;
+  specialization: string;
+  city: string;
+  status: string;
+  organization: string;
+  about: string[];
+  description: string;
+}

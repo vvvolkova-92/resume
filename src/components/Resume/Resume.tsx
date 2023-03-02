@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, Fragment} from "react";
 import {
   Caption, Contacts, ContainerLeft, ContainerRight, Icon, ItemBlockWrapper,
   List, ListItem, ListItemWithIcon, Photo, Qr, QrList, Title, Wrapper
@@ -7,19 +7,8 @@ import noPhoto from "../../images/no-photo.jpg";
 import {useData} from "../../hooks/useData";
 import {ToolTip} from "../../ui/ToolTip/ToolTip";
 import {ToolTipZodiac} from "../../utils/constants";
-import {IEducationItem, IProject, IWorks} from "../types/types";
+import {IEducationItem, IProject, ItemBlockProps, IWorks} from "../types/types";
 
-interface ItemBlockProps {
-  type: 'work' | 'study' | 'project';
-  name: string;
-  year:string;
-  specialization: string;
-  city: string;
-  status: string;
-  organization: string;
-  about: string[];
-  description: string;
-}
 export const ItemBlock: FC<Partial<ItemBlockProps>> = ({name, year, specialization, city, status, organization, about,description, type}) => {
   const isWork = type === 'work';
   const isStudy = type === 'study';
@@ -30,10 +19,10 @@ export const ItemBlock: FC<Partial<ItemBlockProps>> = ({name, year, specializati
       <span>{name}</span>
       <span>{year}</span>
       <ul>
-        {about?.map(item => <div>
+        {about?.map((item, index) => <Fragment key={`${type}-${index}`}>
           <Icon />
           <li>{item}</li>
-        </div>)}
+        </Fragment>)}
       </ul>
     </ItemBlockWrapper>}
     {isStudy && <ItemBlockWrapper>
@@ -80,7 +69,7 @@ export const Resume: FC = () => {
             <Title>Контакты</Title>
             <List>
               {data.telephone && <li>{personalInformation.telephone}</li>}
-              {data.email && emeils.map(email => <li>{email}</li>)}
+              {data.email && emeils.map((email, index) => <li key={`${index}-${email}`}>{email}</li>)}
               {isQrcods && <>
                 <QrList>
                   {data.telegram && <>
@@ -110,7 +99,7 @@ export const Resume: FC = () => {
           {data.personalQualities && <>
             <Title>Личные качества</Title>
             <List>
-              {personalQualities.map(item => <ListItemWithIcon>
+              {personalQualities.map((item, index) => <ListItemWithIcon key={index}>
                   <Icon />
                   <li>{item}</li>
               </ListItemWithIcon>)}
@@ -119,7 +108,7 @@ export const Resume: FC = () => {
           {data.hobby && <>
             <Title>Хобби</Title>
             <List>
-              {data.hobby && hobby.map(item => <ListItemWithIcon>
+              {data.hobby && hobby.map((item, index) => <ListItemWithIcon key={index}>
                 <Icon />
                 <li>{item}</li>
               </ListItemWithIcon>)}
@@ -147,41 +136,45 @@ export const Resume: FC = () => {
         {data.university && <>
           <Title>Учебные заведения</Title>
           <List>
-            {universities.map(univer => <ItemBlock
+            {universities.map((univer, index) => <ItemBlock
               type={'study'}
               name={univer.name}
               year={univer.year}
               specialization={univer.specialization}
               city={univer.city}
               status={univer.status}
+              key={index}
             />)}
           </List>
         </>}
         {data.projects && <>
           <Title>Учебные и pet-проекты</Title>
           <List>
-            {projects.map(project => <ItemBlock
+            {projects.map((project, index) => <ItemBlock
               type={'project'}
               name={project.name}
               description={project.description}
+              key={index}
             />)}
           </List>
         </>}
         <Title>Опыт работы</Title>
         <List>
-          {isAllWorks && allWorks.map(work => <ItemBlock
+          {isAllWorks && allWorks.map((work, index) => <ItemBlock
             type={'work'}
             name={work.name}
             year={work.year}
             organization={work.organization}
             about={work.about}
+            key={index}
           />)}
-          {isITWorks && itWork.map(work => <ItemBlock
+          {isITWorks && itWork.map((work, index) => <ItemBlock
             type={'work'}
             name={work.name}
             year={work.year}
             organization={work.organization}
             about={work.about}
+            key={index}
           />)}
         </List>
       </ContainerRight>

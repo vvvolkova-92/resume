@@ -6,11 +6,11 @@ import {IInitialData} from "../components/types/types";
 
 export const ToolTipContent = 'Позволь мне обращаться к тебе на «ты»: в конце концов, прочитав мое резюме, ты многое обо мне узнаешь. Даже больше, чем знают друзья..';
 
-export const ToolTipZodiac = 'Я надеюсь этот пункт был выбран ради шутки, иначе... бросай это резюме, нам не по пути XD'
+export const ToolTipZodiac = 'Я надеюсь этот пункт был выбран ради шутки, иначе... бросай это резюме, нам не по пути XD';
 
-export enum Arrow {
-  Left = "left",
-  Right = "right",
+export enum ThemeColor {
+  Light = "light",
+  Dark = "dark",
 };
 
 export const initialData:IInitialData = {
@@ -24,7 +24,7 @@ export const initialData:IInitialData = {
     zodiac: 'Близнецы',
     telephone: '+7 (985) 623 35 35',
     email: ['saiviolet@gmail.com', 'saivioletjob@yandex.ru'],
-    telegram: 'violettavolkova',
+    telegram: 'https://t.me/violettavolkova',
     telegramQr: telegramQr,
     github: 'https://github.com/vvvolkova-92',
     githubQr: githubQr,
@@ -32,7 +32,7 @@ export const initialData:IInitialData = {
     linkedInQr: linkedInQr,
     hobby: ['чтение научпопа', 'рисование акварелью'],
     animals: 'И котики, и собачки =)',
-    stack: ['HTML5/CSS3', 'SCSS', 'JavaScript / TypeScript', 'React', 'Webpack / Vite / ParselJS'],
+    stack: ['HTML5','CSS3','SCSS', 'JavaScript', 'TypeScript', 'React', 'Webpack', 'Vite','ParselJS'],
     personalQualities: [
       'Учитывая специфику работы администратора в большой больнице, успешно разрешаю конфликтные ситуации',
       'Исходя из предыдущего пункта - весьма стрессоустойчива',

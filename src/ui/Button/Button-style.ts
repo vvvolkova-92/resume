@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import {Arrow} from "../../utils/constants";
 
-interface IButton{
-  icon?: string,
-}
-
-export const StyledButton = styled.button<IButton>`
+export const StyledButton = styled.button`
   all: unset;
   position: relative;
   cursor: pointer;

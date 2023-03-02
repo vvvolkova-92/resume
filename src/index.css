@@ -1,3 +1,12 @@
+@media print  {
+  h3,p,li,span {
+    color: black;
+  }
+  section {
+    padding: 20px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -11,6 +20,7 @@
   background-color: var(--blue-color);
   border-radius: 10px;
 }
+
 :root {
   --animation: all .6s cubic-bezier(0, 0, 0.58, 1);
   --main-color: #fff;

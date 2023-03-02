@@ -1,7 +1,4 @@
-import photo from "../../images/photo.jpg";
-import telegramQr from "../../images/qrtelega.png";
-import githubQr from "../../images/qrgithub.png";
-import linkedInQr from "../../images/qrlinkedin.png";
+import {MutableRefObject, ReactElement, Ref, RefObject} from "react";
 
 export interface IData {
   data: IInitialData,
@@ -78,3 +75,9 @@ export interface IInitialData {
   education: IEducation;
   works: IWorks[]
 }
+
+export interface Props {
+  step: ReactElement;
+  size: string;
+}
+export type TRef = MutableRefObject<any>;

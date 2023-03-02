@@ -1,15 +1,13 @@
 import {FC, MouseEventHandler} from "react";
 import {StyledButton} from "./Button-style";
-import {Arrow} from "../../utils/constants";
 
 interface IButtonProps {
   title: string;
   onClickHandler:  MouseEventHandler;
-  icon: Arrow;
 }
-export const Button: FC<IButtonProps> = ({title, onClickHandler, icon}) => {
+export const Button: FC<IButtonProps> = ({title, onClickHandler}) => {
   return (
-    <StyledButton onClick={onClickHandler} icon={icon}>
+    <StyledButton onClick={onClickHandler}>
       {title}
     </StyledButton>
   );

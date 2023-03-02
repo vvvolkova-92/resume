@@ -1,17 +1,7 @@
 import {FC} from "react";
 import {
-  About,
-  Caption,
-  Contacts,
-  Education, Icon, ItemBlockWrapper,
-  List,
-  ListItem, ListItemWithIcon,
-  PersonalInformation,
-  Photo, Projects,
-  Qr,
-  QrList,
-  Title, Work,
-  Wrapper
+  Caption, Contacts, ContainerLeft, ContainerRight, Icon, ItemBlockWrapper,
+  List, ListItem, ListItemWithIcon, Photo, Qr, QrList, Title, Wrapper
 } from "./Resume-style";
 import noPhoto from "../../images/no-photo.jpg";
 import {useData} from "../../hooks/useData";
@@ -78,11 +68,73 @@ export const Resume: FC = () => {
   //о себе
   const hobby: string[] = personalInformation.hobby;
   const personalQualities: string[] = personalInformation.personalQualities;
-
+  const isContacts = data.telephone || data.telegram || data.github || data.linkedIn || data.email;
+  const isQrcods = data.telegram || data.github || data.linkedIn;
+  const isAbout = data.personalQualities || data.hobby || data.animals;
   return (
     <Wrapper>
-      <Photo src={data.photo ? personalInformation.photo : noPhoto}/>
-      <PersonalInformation>
+      <ContainerLeft>
+        <Photo src={data.photo ? personalInformation.photo : noPhoto}/>
+        {isContacts && <>
+          <Contacts>
+            <Title>Контакты</Title>
+            <List>
+              {data.telephone && <li>{personalInformation.telephone}</li>}
+              {data.email && emeils.map(email => <li>{email}</li>)}
+              {isQrcods && <>
+                <QrList>
+                  {data.telegram && <>
+                    <ListItem>
+                      <Caption href={personalInformation.telegram} target={"_blank"}>Telegram</Caption>
+                      <Qr src={personalInformation.telegramQr}/>
+                    </ListItem>
+                  </>}
+                  {data.github && <>
+                    <ListItem>
+                      <Caption href={personalInformation.github} target={"_blank"}>GitHub</Caption>
+                      <Qr src={personalInformation.githubQr}/>
+                    </ListItem>
+                  </>}
+                  {data.linkedIn && <>
+                    <ListItem>
+                      <Caption href={personalInformation.linkedIn} target={"_blank"}>LinkedIn</Caption>
+                      <Qr src={personalInformation.linkedInQr}/>
+                    </ListItem>
+                  </>}
+                </QrList>
+              </>}
+            </List>
+          </Contacts>
+        </>}
+        {isAbout && <>
+          {data.personalQualities && <>
+            <Title>Личные качества</Title>
+            <List>
+              {personalQualities.map(item => <ListItemWithIcon>
+                  <Icon />
+                  <li>{item}</li>
+              </ListItemWithIcon>)}
+            </List>
+          </>}
+          {data.hobby && <>
+            <Title>Хобби</Title>
+            <List>
+              {data.hobby && hobby.map(item => <ListItemWithIcon>
+                <Icon />
+                <li>{item}</li>
+              </ListItemWithIcon>)}
+            </List>
+          </>}
+          {data.animals && <>
+            <Title>Котики или собачки</Title>
+            <ListItemWithIcon>
+              <Icon />
+              <span>{personalInformation.animals}</span>
+            </ListItemWithIcon>
+          </>}
+        </>}
+      </ContainerLeft>
+      <ContainerRight>
         <Title>Персональная информация</Title>
         <List>
           <li>{isFullName && personalInformation.fullName}</li>
@@ -90,44 +142,9 @@ export const Resume: FC = () => {
           <li>{data.city && personalInformation.city}</li>
           <li>{data.age && `${personalInformation.age} лет`}</li>
           <li>{data.zodiac && <ToolTip title={personalInformation.zodiac} content={ToolTipZodiac}/>}</li>
-          <li>{data.stack && `Стек: ${personalInformation.stack.toString()}`}</li>
+          <li>{data.stack && `Стек: ${personalInformation.stack.join(' / ')}`}</li>
         </List>
-      </PersonalInformation>
-      <Contacts>
-        <Title>Контакты</Title>
-        <List>
-          <li>{data.telephone && personalInformation.telephone}</li>
-          {data.email && emeils.map(email => <li>{email}</li>) }
-          <QrList>
-            <ListItem>
-              { data.telegram &&
-                <>
-                  <Caption href={personalInformation.telegram} target={"_blank"}>Telegram</Caption>
-                  <Qr src={personalInformation.telegramQr}/>
-                </>
-              }
-            </ListItem>
-            <ListItem>
-              { data.github &&
-                <>
-                  <Caption href={personalInformation.github} target={"_blank"}>GitHub</Caption>
-                  <Qr src={personalInformation.githubQr}/>
-                </>
-              }
-            </ListItem>
-            <ListItem>
-              { data.linkedIn &&
-                <>
-                  <Caption href={personalInformation.linkedIn} target={"_blank"}>LinkedIn</Caption>
-                  <Qr src={personalInformation.linkedInQr}/>
-                </>
-              }
-            </ListItem>
-          </QrList>
-        </List>
-      </Contacts>
-      {data.university && <>
-        <Education>
+        {data.university && <>
           <Title>Учебные заведения</Title>
           <List>
             {universities.map(univer => <ItemBlock
@@ -139,21 +156,17 @@ export const Resume: FC = () => {
               status={univer.status}
             />)}
           </List>
-        </Education>
-      </>}
-      {data.projects && <>
-          <Projects>
-            <Title>Учебные и pet-проекты</Title>
-            <List>
-              {projects.map(project => <ItemBlock
-                type={'project'}
-                name={project.name}
-                description={project.description}
-              />)}
-            </List>
-          </Projects>
         </>}
-      <Work>
+        {data.projects && <>
+          <Title>Учебные и pet-проекты</Title>
+          <List>
+            {projects.map(project => <ItemBlock
+              type={'project'}
+              name={project.name}
+              description={project.description}
+            />)}
+          </List>
+        </>}
         <Title>Опыт работы</Title>
         <List>
           {isAllWorks && allWorks.map(work => <ItemBlock
@@ -171,35 +184,7 @@ export const Resume: FC = () => {
             about={work.about}
           />)}
         </List>
-      </Work>
-      <About>
-        {data.personalQualities && <>
-          <Title>Личные качества</Title>
-          <List>
-            {personalQualities.map(item => <ListItemWithIcon>
-                <Icon />
-                <li>{item}</li>
-              </ListItemWithIcon>
-            )}
-          </List>
-        </>}
-        {data.hobby && <>
-          <Title>Хобби</Title>
-          <List>
-            {data.hobby && hobby.map(item => <ListItemWithIcon>
-              <Icon />
-              <li>{item}</li>
-            </ListItemWithIcon>)}
-          </List>
-        </>}
-        {data.animals && <>
-          <Title>Котики или собачки</Title>
-          <ListItemWithIcon>
-            <Icon />
-            <span>{personalInformation.animals}</span>
-          </ListItemWithIcon>
-        </>}
-      </About>
+      </ContainerRight>
     </Wrapper>
   );
 };

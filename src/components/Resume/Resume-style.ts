@@ -1,47 +1,44 @@
 import styled from "styled-components";
-interface IWrapper {
-  photo: string;
-}
 export const Wrapper = styled.div`
-  display: grid;
-  justify-items: start;
-  align-items: start;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  width: 100%;
   gap: 15px;
-  grid-template-areas:
-  "photo personal"
-  "contact education"
-  "qualities projects"
-  "qualities work";
   color: ${ ({theme}) => theme.textColor};
+`;
+
+export const ContainerLeft = styled.div`
+  flex-basis: 230px;
+`;
+
+export const ContainerRight = styled.div`
+  flex-basis: 475px;
 `;
 
 export const Photo = styled.img.attrs(props => ({
   src: props.src,
 }))`
-  grid-area: photo;
+  padding-bottom: 10px;
   width: 230px;
-  height: 150px;
+  height: 230px;
   object-fit: cover;
   object-position: center center;
-`;
-
-export const List = styled.ul`
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-`;
-
-export const PersonalInformation = styled.div`
-  grid-area: personal;
-  justify-self: start;
 `;
 
 export const Contacts = styled.div`
   display: flex;
   flex-direction: column;
-  grid-area: contact;
 `;
+
+export const List = styled.ul`
+  padding: 0;
+  margin: 5px 0 5px 0;
+  list-style-type: none;
+  
+  & > li {
+   line-height: 22px;
+  }
+`;
+
 
 export const Caption = styled.a`
   margin: 10px;
@@ -86,7 +83,7 @@ export const ListItemWithIcon = styled.div`
       display: list-item;
       max-width: 200px;
       margin-top: 3px;
-  }
+    }
 `;
 
 export const Title = styled.h3`
@@ -94,10 +91,6 @@ export const Title = styled.h3`
   margin: 0;
   font-size: 22px;
   color: ${ ({theme}) => theme.titleColor};
-`;
-
-export const Education = styled.div`
-  grid-area: education;
 `;
 
 export const ItemBlockWrapper = styled.li`
@@ -126,25 +119,11 @@ export const ItemBlockWrapper = styled.li`
       gap: 10px;
       
       & > li {
-        
-        max-width: 490px;
+        max-width: 430px;
         margin-top: 3px;
       }
     }
   }
-  
-`;
-
-export const Projects = styled.div`
-  grid-area: projects;
-`;
-
-export const Work = styled.div`
-  grid-area: work;
-`;
-
-export const About = styled.div`
-  grid-area: qualities;
 `;
 
 export const Icon = styled.div`

@@ -8,7 +8,6 @@ import {useData} from "../../hooks/useData";
 import {ToolTip} from "../../ui/ToolTip/ToolTip";
 import {ToolTipZodiac} from "../../utils/constants";
 import {IEducationItem, IProject, ItemBlockProps, IWorks} from "../types/types";
-
 export const ItemBlock: FC<Partial<ItemBlockProps>> = ({name, year, specialization, city, status, organization, about,description, type}) => {
   const isWork = type === 'work';
   const isStudy = type === 'study';
@@ -19,10 +18,10 @@ export const ItemBlock: FC<Partial<ItemBlockProps>> = ({name, year, specializati
       <span>{name}</span>
       <span>{year}</span>
       <ul>
-        {about?.map((item, index) => <Fragment key={`${type}-${index}`}>
+        {about?.map((item, index) => <div key={`${type}-${index}`}>
           <Icon />
           <li>{item}</li>
-        </Fragment>)}
+        </div>)}
       </ul>
     </ItemBlockWrapper>}
     {isStudy && <ItemBlockWrapper>

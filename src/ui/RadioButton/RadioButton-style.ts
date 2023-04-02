@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import image from "../../images/radioButtonIcon.svg";
 export const RadioButtonWrapper = styled.div`
   input {
     position: absolute;
@@ -35,7 +35,7 @@ export const RadioButtonWrapper = styled.div`
     &:checked+label::before {
       background-color: ${({theme}) => theme.radiobutton.checked};
       border-color: ${({theme}) => theme.radiobutton.checked};
-      background-image: url('/src/images/radioButtonIcon.svg');
+      background-image: url(${image});
     };
   }
 `;

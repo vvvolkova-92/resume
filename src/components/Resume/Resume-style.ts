@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import image from "../../images/checkboxIcon.svg";
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
@@ -112,7 +113,6 @@ export const ItemBlockWrapper = styled.li`
     padding: 0;
     list-style-type: none;
     
-    
     & > div {
       display: flex;
       align-items: flex-start;
@@ -120,14 +120,14 @@ export const ItemBlockWrapper = styled.li`
       
       & > li {
         max-width: 430px;
-        margin-top: 3px;
+        margin: 0;
       }
     }
   }
 `;
 
 export const Icon = styled.div`
-  background-image: url('/src/images/checkboxIcon.svg');
+  background-image: url(${image});
   width: 15px;
   height: 15px;
   background-repeat: no-repeat;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import image from "../../images/checkboxIcon.svg";
 
 export const CheckboxWrapper = styled.div`
   input {
@@ -35,7 +36,7 @@ export const CheckboxWrapper = styled.div`
     &:checked+label::before {
       background-color: ${({theme}) => theme.checkbox.checked};
       border-color: ${({theme}) => theme.checkbox.checked};
-      background-image: url('/src/images/checkboxIcon.svg');
+      background-image: url(${image});
     }
   }
 `;

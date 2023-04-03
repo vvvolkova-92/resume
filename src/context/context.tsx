@@ -1,6 +1,6 @@
 import {createContext, useState, useMemo, FC, useContext, ReactNode} from "react";
 import {initialData} from "../utils/constants";
-import {IData} from "../components/types/types";
+import {IData} from "../types/types";
 
 export const MyContext = createContext();
 export const DataProvider:FC<{children: ReactNode}> = ({ children }) => {

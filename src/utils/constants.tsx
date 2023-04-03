@@ -1,8 +1,8 @@
-import photo from "../images/photo.jpg";
+import photo from "../images/photo.jpeg";
 import telegramQr from "../images/qrtelega.png";
 import githubQr from "../images/qrgithub.png";
 import linkedInQr from "../images/qrlinkedin.png";
-import {IInitialData} from "../components/types/types";
+import {IInitialData} from "../types/types";
 
 export const ToolTipContent = 'Позволь мне обращаться к тебе на «ты»: в конце концов, прочитав мое резюме, ты многое обо мне узнаешь. Даже больше, чем знают друзья..';
 
@@ -66,12 +66,58 @@ export const initialData:IInitialData = {
         city: 'Москва',
         status: 'не окончен / до окончания 3 месяца',
       },
+      {
+        name: 'Freecodecamp',
+        year: '2022-настоящее время',
+        specialization: 'Frontend cources',
+        city: 'Москва',
+        status: 'бесплатные курсы',
+      },
     ],
     projects: [
-      {name: 'name1', description: 'desc1'},
-      {name: 'name2', description: 'desc2'},
-      {name: 'name3', description: 'desc3'},
-      {name: 'name4', description: 'desc4'},
+      {
+        name: 'Учебная работа "Шахматный клуб"',
+        description: 'Вёрстка адаптивного одностраничника согласно макета с использованием методологии БЭМ и настройки слайдера Swapper под проект.',
+        stack: 'HTML / SCSS / JavaScript',
+        link: 'https://vvvolkova-92.github.io/chess/'
+      },
+      {
+        name: 'SPA "Путешествия по России"',
+        description: 'Рефакторинг учебного проекта на React. Внесла свои правки в визуальную составляющую, сделала свою сборку и поигралась с API правительства Москвы.',
+        stack: 'SCSS / React / TypeScript / Axios / ParselJS',
+        link: 'https://vvvolkova-92.github.io/russian-travel/'
+      },
+      {
+        name: 'Учебная работа "Место"',
+        description: 'Адаптивная верстка макета + ванильный js / Добавление карточек, изменение профайла, лайк карточки',
+        stack: 'HTML / CSS / JS',
+        link: 'https://vvvolkova-92.github.io/mesto-project/'
+      },
+      {
+        name: 'Реакт-бургер',
+        description: 'Сервис по сборке и оформлению бургера. Авторизация, просмотр своих заказов, просмотр списка всех заказов.',
+        stack: 'React / Redux / TypeScript',
+        link: 'https://vvvolkova-92.github.io/react-burger'
+      },
+      {
+        name: 'Страница с Погодой',
+        description: 'Совместная работа со студентом Практикума\n' +
+            'UI с нуля (например, часы и прогрессбар). Текущая погода и прогноз на 5 дней вперед. Автоматически чекается местоположение. Поиск по городам. API openweathermap',
+        stack: 'React / Styled Components / linter',
+        link: 'https://svdgtl.github.io/weather/'
+      },
+      {
+        name: '"Злодеи" - визуализация алгоритмов сортировки',
+        description: 'Сортировка злодеев по уровню их злодейства под песню №1 из тусовочного диска Барни Стинсона.',
+        stack: 'SCSS / React /пакеты react-select и tsparticles',
+        link: 'https://vvvolkova-92.github.io/villain-party/'
+      },
+      {
+        name: 'Резюме - выбери и распечатай',
+        description: 'Пошаговая форма с чекбоксами для формирования резюме с возможностью его распечатать или сохранить в .pdf',
+        stack: 'REACT / TYPESCRIPT / STYLED-COMPONENTS / VITE',
+        link: 'https://vvvolkova-92.github.io/resume/'
+      },
     ],
   },
   works: [
@@ -149,15 +195,11 @@ export const initialData:IInitialData = {
     },
     {
       spec: true,
-      organization: 'Яндекс.Практикум',
+      organization: 'Яндекс.Практикум (обучение)',
       name: 'студент курса "ВЕб-разработка+"',
-      year: 'Июнь 2021 — по настоящее время',
+      year: 'Июль 2021 — по настоящее время',
       about: [
-        'заполнить',
-        'заполнить',
-        'заполнить',
-        'заполнить',
-        'заполнить',
+        'Написание учебных проектов в рамках Яндекс.Практикума для закрепления пройденного материала (все работы проходят код-ревью от специалистов)',
       ],
     },
   ]

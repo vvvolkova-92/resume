@@ -38,6 +38,12 @@ export const List = styled.ul`
   & > li {
    line-height: 22px;
   }
+
+  & > a {
+    cursor: pointer;
+    color: var(--main-color);
+    text-decoration: none;
+  }
 `;
 
 
@@ -96,6 +102,13 @@ export const Title = styled.h3`
 
 export const ItemBlockWrapper = styled.li`
   
+  padding: 10px 0;
+  border-bottom: 1px solid #d3d3d3;
+  
+  &:last-of-type {
+    border: none;
+  }
+  
   & > h4 {
     padding: 0;
     margin: 10px 0 10px 0;
@@ -103,9 +116,23 @@ export const ItemBlockWrapper = styled.li`
   }
 
   & > span {
-    margin-top: 3px;
+    margin-top: 5px;
     font-style: italic;
     display: block;
+  }
+
+  & > p {
+    margin: 15px 0 0 0;
+    font-weight: bold;
+  }
+
+  & > a {
+    display: block;
+    cursor: pointer;
+    color: #B6CEE8;
+    margin: 3px 0 0 0;
+    padding-bottom: 10px;
+    font-weight: bold;
   }
   
   & > ul {

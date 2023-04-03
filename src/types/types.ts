@@ -34,6 +34,8 @@ export interface IEducationItem {
 export interface IProject {
   name: string;
   description: string;
+  stack: string;
+  link: string;
 }
 
 export interface IEducation {
@@ -92,4 +94,6 @@ export interface ItemBlockProps {
   organization: string;
   about: string[];
   description: string;
+  stack: string;
+  link: string;
 }

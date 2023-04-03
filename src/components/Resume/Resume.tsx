@@ -7,8 +7,20 @@ import noPhoto from "../../images/no-photo.jpg";
 import {useData} from "../../hooks/useData";
 import {ToolTip} from "../../ui/ToolTip/ToolTip";
 import {ToolTipZodiac} from "../../utils/constants";
-import {IEducationItem, IProject, ItemBlockProps, IWorks} from "../types/types";
-export const ItemBlock: FC<Partial<ItemBlockProps>> = ({name, year, specialization, city, status, organization, about,description, type}) => {
+import {IEducationItem, IProject, ItemBlockProps, IWorks} from "../../types/types";
+export const ItemBlock: FC<Partial<ItemBlockProps>> = ({
+  name,
+  year,
+  specialization,
+  city,
+  status,
+  organization,
+  about,
+  description,
+  stack,
+  link,
+  type}) => {
+
   const isWork = type === 'work';
   const isStudy = type === 'study';
   const isProject = type === 'project';
@@ -33,6 +45,8 @@ export const ItemBlock: FC<Partial<ItemBlockProps>> = ({name, year, specializati
     {isProject && <ItemBlockWrapper>
       <h4>{name}</h4>
       <span>{description}</span>
+      <p>{stack}</p>
+      <a href={link} target="_blank">{link}</a>
     </ItemBlockWrapper>}
   </>
 };
@@ -67,26 +81,36 @@ export const Resume: FC = () => {
           <Contacts>
             <Title>Контакты</Title>
             <List>
-              {data.telephone && <li>{personalInformation.telephone}</li>}
-              {data.email && emeils.map((email, index) => <li key={`${index}-${email}`}>{email}</li>)}
+              {data.telephone && <a href={`tel:${personalInformation.telephone}`}>
+                <li>{personalInformation.telephone}</li>
+              </a>}
+              {data.email && emeils.map((email, index) => <a href={`mailto:${email}&body=Какое крутое резюме?subject=Оффер сразу =)`}>
+                <li key={`${index}-${email}`}>{email}</li>
+              </a>)}
               {isQrcods && <>
                 <QrList>
                   {data.telegram && <>
                     <ListItem>
                       <Caption href={personalInformation.telegram} target={"_blank"}>Telegram</Caption>
-                      <Qr src={personalInformation.telegramQr}/>
+                      <a target="_blank" href={personalInformation.telegram}>
+                        <Qr src={personalInformation.telegramQr}/>
+                      </a>
                     </ListItem>
                   </>}
                   {data.github && <>
                     <ListItem>
                       <Caption href={personalInformation.github} target={"_blank"}>GitHub</Caption>
-                      <Qr src={personalInformation.githubQr}/>
+                      <a target="_blank" href={personalInformation.github}>
+                        <Qr src={personalInformation.githubQr}/>
+                      </a>
                     </ListItem>
                   </>}
                   {data.linkedIn && <>
                     <ListItem>
                       <Caption href={personalInformation.linkedIn} target={"_blank"}>LinkedIn</Caption>
-                      <Qr src={personalInformation.linkedInQr}/>
+                      <a target="_blank" href={personalInformation.linkedIn}>
+                        <Qr src={personalInformation.linkedInQr}/>
+                      </a>
                     </ListItem>
                   </>}
                 </QrList>
@@ -153,6 +177,8 @@ export const Resume: FC = () => {
               type={'project'}
               name={project.name}
               description={project.description}
+              stack={project.stack}
+              link={project.link}
               key={index}
             />)}
           </List>

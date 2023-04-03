@@ -11,7 +11,7 @@ import {forwardRef, useRef, useState} from "react";
 import {ThemeProvider} from "styled-components";
 import {darkTheme, lightTheme} from "../../styles/themes";
 import {useReactToPrint} from "react-to-print";
-import {Props, TRef} from "../types/types";
+import {Props, TRef} from "../../types/types";
 
 const Step = forwardRef<TRef, Props>((props, ref) => {
   // @ts-ignore
